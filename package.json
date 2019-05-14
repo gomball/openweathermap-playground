@@ -1,6 +1,12 @@
 {
   "name": "openweathermap-playground",
+  "description": "playgroud/p.o.c. web application intended for test openweathermap.org api",
+  "license": "UNLICENSED",
+  "private": true,
   "version": "0.0.0",
+  "repository": {
+    "url": "https://github.com/gomball/openweathermap-playground.git"
+  },
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -9,7 +15,6 @@
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
-  "private": true,
   "dependencies": {
     "@angular/animations": "~7.2.0",
     "@angular/common": "~7.2.0",
