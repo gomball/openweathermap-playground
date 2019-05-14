@@ -1,0 +1,17 @@
+{
+  "extends": "../tslint.json",
+  "rules": {
+    "directive-selector": [
+      true,
+      "attribute",
+      "owmPg",
+      "camelCase"
+    ],
+    "component-selector": [
+      true,
+      "element",
+      "owm-pg",
+      "kebab-case"
+    ]
+  }
+}
