@@ -2,9 +2,9 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'owm-pg-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  templateUrl: './app-root.component.html',
+  styleUrls: ['./app-root.component.scss']
 })
-export class AppComponent {
+export class AppRootComponent {
   title = 'openweathermap-playground';
 }
