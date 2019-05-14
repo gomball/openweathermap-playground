@@ -9,11 +9,15 @@
   },
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
-    "test": "ng test",
-    "lint": "ng lint",
-    "e2e": "ng e2e"
+    "akita": "akita",
+    "build.app.local": "ng build",
+    "build.app.pre": "ng build --prod=true --progress=false --stats-json=true",
+    "build.app.pro": "ng build --prod=true --progress=false",
+    "serve.app.local": "ng serve --port 4200",
+    "test.app.local": "ng test",
+    "lint.app.local": "ng lint",
+    "e2e": "ng e2e",
+    "infra.analize-bundle": "webpack-bundle-analyzer dist/stats.json"
   },
   "dependencies": {
     "@angular/animations": "~7.2.0",
