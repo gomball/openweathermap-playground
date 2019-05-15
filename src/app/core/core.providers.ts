@@ -1,3 +1,4 @@
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { APP_INITIALIZER, Provider } from '@angular/core';
 import { MatIconRegistry } from '@angular/material';
 import { DomSanitizer } from '@angular/platform-browser';
@@ -6,6 +7,7 @@ import {
   TranslateLoader as NgxTranslateLoader,
   TranslateModuleConfig as NgxTranslateModuleConfig
 } from '@ngx-translate/core';
+import { HttpRequestCounterInterceptor } from './interceptors/http-request-counter/http-request-counter.interceptor';
 import { MissingTranslationHandler } from './types/missing-translation-handler';
 import { TranslationLoader } from './types/translation-loader';
 
@@ -20,6 +22,14 @@ export const APP_INITIALIZER_PROVIDERS: Provider[] = [
     provide: APP_INITIALIZER,
     useFactory: appInitializerFnFactory,
     deps: [MatIconRegistry, DomSanitizer],
+    multi: true
+  }
+];
+
+export const HTTP_INTERCEPTORS_PROVIDERS: Provider[] = [
+  {
+    provide: HTTP_INTERCEPTORS,
+    useClass: HttpRequestCounterInterceptor,
     multi: true
   }
 ];

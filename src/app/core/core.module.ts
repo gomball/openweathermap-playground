@@ -5,7 +5,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
 import { TranslateModule as NgxTranslateModule } from '@ngx-translate/core';
 import { APP_CONFIGURATION, AppConfigurationContract } from './configuration/app-configuration.contract';
-import { APP_INITIALIZER_PROVIDERS, NGX_TRANSLATE_CONFIGURAION } from './core.providers';
+import { APP_INITIALIZER_PROVIDERS, HTTP_INTERCEPTORS_PROVIDERS, NGX_TRANSLATE_CONFIGURAION } from './core.providers';
 import { AppServiceLocator } from './services/app-service-locator';
 
 @NgModule({
@@ -28,7 +28,7 @@ export class CoreModule {
   static forRoot(appConfiguration: AppConfigurationContract): ModuleWithProviders {
     return {
       ngModule: CoreModule,
-      providers: [{ provide: APP_CONFIGURATION, useValue: appConfiguration }, ...APP_INITIALIZER_PROVIDERS]
+      providers: [{ provide: APP_CONFIGURATION, useValue: appConfiguration }, ...APP_INITIALIZER_PROVIDERS, ...HTTP_INTERCEPTORS_PROVIDERS]
     };
   }
 }
