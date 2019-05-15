@@ -7,6 +7,7 @@ import {
   TranslateLoader as NgxTranslateLoader,
   TranslateModuleConfig as NgxTranslateModuleConfig
 } from '@ngx-translate/core';
+import { HttpErrorInterceptor } from './interceptors/http-error/http-error.interceptor';
 import { HttpRequestCounterInterceptor } from './interceptors/http-request-counter/http-request-counter.interceptor';
 import { MissingTranslationHandler } from './types/missing-translation-handler';
 import { TranslationLoader } from './types/translation-loader';
@@ -30,6 +31,11 @@ export const HTTP_INTERCEPTORS_PROVIDERS: Provider[] = [
   {
     provide: HTTP_INTERCEPTORS,
     useClass: HttpRequestCounterInterceptor,
+    multi: true
+  },
+  {
+    provide: HTTP_INTERCEPTORS,
+    useClass: HttpErrorInterceptor,
     multi: true
   }
 ];
