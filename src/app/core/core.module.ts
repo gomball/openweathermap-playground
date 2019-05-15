@@ -6,7 +6,7 @@ import { RouterModule } from '@angular/router';
 import { TranslateModule as NgxTranslateModule } from '@ngx-translate/core';
 import { APP_CONFIGURATION, AppConfigurationContract } from './configuration/app-configuration.contract';
 import { APP_INITIALIZER_PROVIDERS, NGX_TRANSLATE_CONFIGURAION } from './core.providers';
-import { AppServiceLocator } from './services/app-service.locator';
+import { AppServiceLocator } from './services/app-service-locator';
 
 @NgModule({
   imports: [BrowserModule, BrowserAnimationsModule, HttpClientModule, RouterModule, NgxTranslateModule.forRoot(NGX_TRANSLATE_CONFIGURAION)],
