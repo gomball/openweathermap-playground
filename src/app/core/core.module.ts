@@ -5,6 +5,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
 import { APP_INITIALIZER_PROVIDERS } from './core.providers';
 import { AppServiceLocator } from './services/app-service.locator';
+import { AppConfigurationContract, APP_CONFIGURATION } from './configuration/app-configuration.contract';
 
 @NgModule({
   imports: [BrowserModule, BrowserAnimationsModule, HttpClientModule, RouterModule],
@@ -23,10 +24,10 @@ export class CoreModule {
     AppServiceLocator.injector = injector;
   }
 
-  static forRoot(): ModuleWithProviders {
+  static forRoot(appConfiguration: AppConfigurationContract): ModuleWithProviders {
     return {
       ngModule: CoreModule,
-      providers: [APP_INITIALIZER_PROVIDERS]
+      providers: [{ provide: APP_CONFIGURATION, useValue: appConfiguration }, APP_INITIALIZER_PROVIDERS]
     };
   }
 }
