@@ -9,8 +9,18 @@ import { APP_INITIALIZER_PROVIDERS, HTTP_INTERCEPTORS_PROVIDERS, NGX_TRANSLATE_C
 import { AppServiceLocator } from './services/app-service-locator';
 
 @NgModule({
-  imports: [BrowserModule, BrowserAnimationsModule, HttpClientModule, RouterModule, NgxTranslateModule.forRoot(NGX_TRANSLATE_CONFIGURAION)],
-  declarations: []
+  imports: [
+    BrowserModule,
+    BrowserAnimationsModule,
+    HttpClientModule,
+    RouterModule,
+    MatButtonModule,
+    MatIconModule,
+    MatMenuModule,
+    MatSnackBarModule,
+    MatToolbarModule,
+    NgxTranslateModule.forRoot(NGX_TRANSLATE_CONFIGURAION)
+  ],
 })
 export class CoreModule {
   constructor(
