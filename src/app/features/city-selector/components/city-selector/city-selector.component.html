@@ -1,3 +1,23 @@
-<p>
-  city-selector works!
-</p>
+<mat-form-field class="city-chip-list">
+  <mat-chip-list #chipList>
+    <mat-chip *ngFor="let city of cityQuery.selected$ | async" [selectable]="false" [removable]="true" (removed)="onRemoved(city)">
+      {{ city.name }}
+      <mat-icon matChipRemove svgIcon="close"></mat-icon>
+    </mat-chip>
+    <input
+      placeholder="cities"
+      #cityInput
+      [formControl]="citiesFormControl"
+      [matAutocomplete]="cityAutocompete"
+      [matChipInputFor]="chipList"
+      [matChipInputSeparatorKeyCodes]="[ENTER]"
+      [matChipInputAddOnBlur]="false"
+
+    />
+  </mat-chip-list>
+  <mat-autocomplete #cityAutocompete="matAutocomplete" (optionSelected)="onSelected($event)">
+    <mat-option *ngFor="let city of availableFilteredCities$ | async" [value]="city">
+      {{ city.name }}
+    </mat-option>
+  </mat-autocomplete>
+</mat-form-field>
