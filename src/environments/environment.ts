@@ -1,9 +1,15 @@
+import { AppConfigurationContract } from '../app/core/configuration/app-configuration.contract';
+
 // This file can be replaced during build by using the `fileReplacements` array.
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
-export const environment = {
-  production: false
+export const environment: AppConfigurationContract = {
+  production: false,
+  appName: 'openweathermap.org playground',
+  owmApiRoot: '/owm-api',
+  owmApiKey: '__temp_not_valid_key__',
+  defaultLocale: 'es'
 };
 
 /*

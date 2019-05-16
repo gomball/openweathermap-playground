@@ -1,16 +1,33 @@
 import { HttpClientModule } from '@angular/common/http';
 import { Injector, ModuleWithProviders, NgModule, Optional, SkipSelf } from '@angular/core';
+import { MatButtonModule, MatIconModule, MatMenuModule, MatSnackBarModule, MatToolbarModule } from '@angular/material';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
 import { TranslateModule as NgxTranslateModule } from '@ngx-translate/core';
+import { MainCanvasComponent } from './components/main-canvas/main-canvas.component';
+import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { APP_CONFIGURATION, AppConfigurationContract } from './configuration/app-configuration.contract';
 import { APP_INITIALIZER_PROVIDERS, HTTP_INTERCEPTORS_PROVIDERS, NGX_TRANSLATE_CONFIGURAION } from './core.providers';
 import { AppServiceLocator } from './services/app-service-locator';
 
+const COMPONENTS = [MainCanvasComponent, ToolbarComponent];
+
 @NgModule({
-  imports: [BrowserModule, BrowserAnimationsModule, HttpClientModule, RouterModule, NgxTranslateModule.forRoot(NGX_TRANSLATE_CONFIGURAION)],
-  declarations: []
+  imports: [
+    BrowserModule,
+    BrowserAnimationsModule,
+    HttpClientModule,
+    RouterModule,
+    MatButtonModule,
+    MatIconModule,
+    MatMenuModule,
+    MatSnackBarModule,
+    MatToolbarModule,
+    NgxTranslateModule.forRoot(NGX_TRANSLATE_CONFIGURAION)
+  ],
+  declarations: [...COMPONENTS],
+  exports: [...COMPONENTS]
 })
 export class CoreModule {
   constructor(

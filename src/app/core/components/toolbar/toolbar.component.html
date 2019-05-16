@@ -1,0 +1,15 @@
+<mat-toolbar color="primary">
+  <button mat-icon-button>
+    <mat-icon svgIcon="theme-light-dark"></mat-icon>
+  </button>
+  <span class="title">{{ title }}</span>
+  <span class="flex-fill">&nbsp;</span>
+  <button mat-icon-button [matMenuTriggerFor]="themeMenu">
+    <mat-icon svgIcon="format-color-fill"></mat-icon>
+  </button>
+</mat-toolbar>
+
+<mat-menu #themeMenu="matMenu">
+  <button mat-menu-item (click)="setTheme('light')">{{ 'light' | uppercase }}</button>
+  <button mat-menu-item (click)="setTheme('dark')">{{ 'dark' | uppercase }}</button>
+</mat-menu>
