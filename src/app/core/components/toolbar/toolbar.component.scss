@@ -1,0 +1,20 @@
+:host {
+  display: flex;
+}
+
+.title {
+  padding-left: 8px;
+}
+
+.flex-fill {
+  flex: 1 1 auto;
+}
+
+[mat-menu-item].active,
+[mat-menu-item]:hover {
+  background-color: rgba(black, 0.04);
+  & > .flag-icon {
+    filter: grayscale(0);
+    opacity: 0.8;
+  }
+}
