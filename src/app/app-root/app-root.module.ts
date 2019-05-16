@@ -1,12 +1,13 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
+import { AkitaNgDevtools } from '@datorama/akita-ngdevtools';
+import { environment } from '../../environments/environment';
+import { CoreModule } from '../core/core.module';
 import { AppRootRoutingModule } from './app-root-routing.module';
 import { AppRootComponent } from './app-root.component';
-import { environment } from '../../environments/environment';
-import { AkitaNgDevtools } from '@datorama/akita-ngdevtools';
 
 @NgModule({
-  imports: [CommonModule, environment.production ? [] : AkitaNgDevtools.forRoot(), AppRootRoutingModule],
+  imports: [CommonModule, CoreModule.forRoot(environment), environment.production ? [] : AkitaNgDevtools.forRoot(), AppRootRoutingModule],
   declarations: [AppRootComponent],
   bootstrap: [AppRootComponent]
 })
