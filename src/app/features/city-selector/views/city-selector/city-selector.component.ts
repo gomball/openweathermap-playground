@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'owm-pg-city-selector',
@@ -6,4 +7,6 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   styleUrls: ['./city-selector.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class CitySelectorComponent {}
+export class CitySelectorComponent {
+  citiesFormControl = new FormControl();
+}
