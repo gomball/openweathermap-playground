@@ -14,9 +14,12 @@
         curabitur mattis mi, suspendisse pulvinar duis risus nisi penatibus rutrum per.
       </p>
       <owm-pg-city-selection-input [formControl]="citiesFormControl"></owm-pg-city-selection-input>
+      <mat-error *ngIf="citiesFormControl.invalid && citiesFormControl.touched">
+        {{ 'messages.validation.invalidFieldValue' | translate }}
+      </mat-error>
     </mat-card-content>
     <mat-card-actions class="end-xs">
-      <button mat-button [disabled]="citiesFormControl.value?.length > 4">{{ 'next' | translate | uppercase }}</button>
+      <button mat-button [disabled]="citiesFormControl.invalid">{{ 'next' | translate | uppercase }}</button>
     </mat-card-actions>
   </mat-card>
 </div>
