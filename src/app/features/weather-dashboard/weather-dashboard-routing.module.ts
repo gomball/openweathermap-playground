@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
+import { WeatherDashboardComponent } from './views/weather-dashboard/weather-dashboard.component';
 
-const routes: Routes = [];
+const routes: Routes = [{ path: '', component: WeatherDashboardComponent }];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class WeatherDashboardRoutingModule { }
+export class WeatherDashboardRoutingModule {}
