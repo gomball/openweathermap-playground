@@ -17,16 +17,8 @@ export class CityService {
     this._httpClient.get<City[]>(url).subscribe((available) => this._store.update((state) => ({ ...state, available })));
   }
 
-  addSelectedCity(city: City): void {
+  setSelectedCities(selected: City[]): void {
     this._store.update((state) => {
-      const selected = [...state.selected, city];
-      return { ...state, selected };
-    });
-  }
-
-  removeSelectedCity(city: City): void {
-    this._store.update((state) => {
-      const selected = state.selected.filter((c) => c.id !== city.id);
       return { ...state, selected };
     });
   }
