@@ -1,0 +1,173 @@
+[
+  {
+    "id": 6356055,
+    "name": "Barcelona",
+    "country": "ES",
+    "coord": {
+      "lon": 2.12804,
+      "lat": 41.399422
+    }
+  },
+  {
+    "id": 1816670,
+    "name": "Beijing",
+    "country": "CN",
+    "coord": {
+      "lon": 116.397232,
+      "lat": 39.907501
+    }
+  },
+  {
+    "id": 2950159,
+    "name": "Berlin",
+    "country": "DE",
+    "coord": {
+      "lon": 13.41053,
+      "lat": 52.524368
+    }
+  },
+  {
+    "id": 3435910,
+    "name": "Buenos Aires",
+    "country": "AR",
+    "coord": {
+      "lon": -58.377232,
+      "lat": -34.613152
+    }
+  },
+  {
+    "id": 3936456,
+    "name": "Lima",
+    "country": "PE",
+    "coord": {
+      "lon": -77.028236,
+      "lat": -12.04318
+    }
+  },
+  {
+    "id": 2643743,
+    "name": "London",
+    "country": "GB",
+    "coord": {
+      "lon": -0.12574,
+      "lat": 51.50853
+    }
+  },
+  {
+    "id": 5368361,
+    "name": "Los Angeles",
+    "country": "US",
+    "coord": {
+      "lon": -118.243683,
+      "lat": 34.052231
+    }
+  },
+  {
+    "id": 6359304,
+    "name": "Madrid",
+    "country": "ES",
+    "coord": {
+      "lon": -3.68275,
+      "lat": 40.489349
+    }
+  },
+  {
+    "id": 524901,
+    "name": "Moscow",
+    "country": "RU",
+    "coord": {
+      "lon": 37.615555,
+      "lat": 55.75222
+    }
+  },
+  {
+    "id": 1261481,
+    "name": "New Delhi",
+    "country": "IN",
+    "coord": {
+      "lon": 77.23114,
+      "lat": 28.61282
+    }
+  },
+  {
+    "id": 5128638,
+    "name": "New York",
+    "country": "US",
+    "coord": {
+      "lon": -75.499901,
+      "lat": 43.000351
+    }
+  },
+  {
+    "id": 2968815,
+    "name": "Paris",
+    "country": "FR",
+    "coord": {
+      "lon": 2.3486,
+      "lat": 48.853401
+    }
+  },
+  {
+    "id": 3169070,
+    "name": "Roma",
+    "country": "IT",
+    "coord": {
+      "lon": 12.4839,
+      "lat": 41.894741
+    }
+  },
+  {
+    "id": 3871336,
+    "name": "Santiago",
+    "country": "CL",
+    "coord": {
+      "lon": -70.64827,
+      "lat": -33.45694
+    }
+  },
+  {
+    "id": 3448439,
+    "name": "Sao Paulo",
+    "country": "BR",
+    "coord": {
+      "lon": -46.636108,
+      "lat": -23.547501
+    }
+  },
+  {
+    "id": 2510911,
+    "name": "Sevilla",
+    "country": "ES",
+    "coord": {
+      "lon": -5.97613,
+      "lat": 37.382408
+    }
+  },
+  {
+    "id": 2147714,
+    "name": "Sydney",
+    "country": "AU",
+    "coord": {
+      "lon": 151.207321,
+      "lat": -33.867851
+    }
+  },
+  {
+    "id": 1850147,
+    "name": "Tokyo",
+    "country": "JP",
+    "coord": {
+      "lon": 139.691711,
+      "lat": 35.689499
+    }
+  },
+  {
+    "id": 2509954,
+    "name": "Valencia",
+    "country": "ES",
+    "coord": {
+      "lon": -0.37739,
+      "lat": 39.469749
+    }
+  }
+]
