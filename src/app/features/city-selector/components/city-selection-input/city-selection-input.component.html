@@ -12,7 +12,7 @@
       [matChipInputFor]="chipList"
       [matChipInputSeparatorKeyCodes]="[ENTER]"
       [matChipInputAddOnBlur]="false"
-
+      [readOnly]="(cityQuery.selected$ | async)?.length >= 4"
     />
   </mat-chip-list>
   <mat-autocomplete #cityAutocompete="matAutocomplete" (optionSelected)="onSelected($event)">

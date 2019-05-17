@@ -9,12 +9,12 @@ import { CityQuery } from '../../state/city.query';
 import { CityService } from '../../state/city.service';
 
 @Component({
-  selector: 'owm-pg-city-selector',
-  templateUrl: './city-selector.component.html',
-  styleUrls: ['./city-selector.component.scss'],
+  selector: 'owm-pg-city-selection-input',
+  templateUrl: './city-selection-input.component.html',
+  styleUrls: ['./city-selection-input.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class CitySelectorComponent {
+export class CitySelectionInputComponent {
   ENTER = ENTER;
   citiesFormControl = new FormControl();
   availableFilteredCities$: Observable<City[]>;
