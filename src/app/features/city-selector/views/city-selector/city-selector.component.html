@@ -1,4 +1,22 @@
-<h1 class="mat-headline">{{ 'citySelector' | translate }}</h1>
-<h3 class="mat-subheading-2">{{ 'messages.selectCities' | translate }}</h3>
-<mat-divider></mat-divider>
-<owm-pg-city-selection-input [formControl]="citiesFormControl"></owm-pg-city-selection-input>
+<div class="row center-xs" [style.padding-top.px]="32">
+  <mat-card class="example-card col-xs-12 col-md-9 col-lg-6 start-xs">
+    <mat-card-header>
+      <div mat-card-avatar>
+        <mat-icon svgIcon="map-marker-multiple"></mat-icon>
+      </div>
+      <mat-card-title>{{ 'citySelector' | translate }}</mat-card-title>
+      <mat-card-subtitle>{{ 'messages.selectCities' | translate }}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipiscing elit, mi in massa nunc curabitur fusce mattis, rutrum fames montes taciti tortor
+        sociis. Faucibus platea turpis tristique senectus habitant potenti nec aptent bibendum, vel vulputate consequat accumsan felis
+        curabitur mattis mi, suspendisse pulvinar duis risus nisi penatibus rutrum per.
+      </p>
+      <owm-pg-city-selection-input [formControl]="citiesFormControl"></owm-pg-city-selection-input>
+    </mat-card-content>
+    <mat-card-actions class="end-xs">
+      <button mat-button [disabled]="citiesFormControl.value?.length > 4">{{ 'next' | translate | uppercase }}</button>
+    </mat-card-actions>
+  </mat-card>
+</div>
