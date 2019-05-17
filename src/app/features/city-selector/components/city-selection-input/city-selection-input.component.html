@@ -12,7 +12,6 @@
       [matChipInputFor]="chipList"
       [matChipInputSeparatorKeyCodes]="[ENTER]"
       [matChipInputAddOnBlur]="false"
-      [readOnly]="model.length >= 4"
     />
   </mat-chip-list>
   <mat-autocomplete #autocompete="matAutocomplete" (optionSelected)="onSelected($event)">
