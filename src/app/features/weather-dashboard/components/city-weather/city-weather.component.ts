@@ -1,4 +1,5 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { City } from '../../../../domain/city';
 
 @Component({
   selector: 'owm-pg-city-weather',
@@ -6,11 +7,8 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
   styleUrls: ['./city-weather.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class CityWeatherComponent implements OnInit {
+export class CityWeatherComponent {
+  @Input() city: City;
 
-  constructor() { }
-
-  ngOnInit() {
-  }
-
+  constructor() {}
 }
