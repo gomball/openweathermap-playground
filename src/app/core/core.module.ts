@@ -1,7 +1,7 @@
 import { HttpClientModule } from '@angular/common/http';
 import { Injector, ModuleWithProviders, NgModule, Optional, SkipSelf } from '@angular/core';
-import { MatButtonModule, MatIconModule, MatMenuModule, MatSnackBarModule, MatToolbarModule } from '@angular/material';
-import { BrowserModule } from '@angular/platform-browser';
+import { GestureConfig, MatButtonModule, MatIconModule, MatMenuModule, MatSnackBarModule, MatToolbarModule } from '@angular/material';
+import { BrowserModule, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
 import { TranslateModule as NgxTranslateModule } from '@ngx-translate/core';
@@ -45,7 +45,12 @@ export class CoreModule {
   static forRoot(appConfiguration: AppConfigurationContract): ModuleWithProviders {
     return {
       ngModule: CoreModule,
-      providers: [{ provide: APP_CONFIGURATION, useValue: appConfiguration }, ...APP_INITIALIZER_PROVIDERS, ...HTTP_INTERCEPTORS_PROVIDERS]
+      providers: [
+        { provide: APP_CONFIGURATION, useValue: appConfiguration },
+        ...APP_INITIALIZER_PROVIDERS,
+        ...HTTP_INTERCEPTORS_PROVIDERS,
+        { provide: HAMMER_GESTURE_CONFIG, useClass: GestureConfig }
+      ]
     };
   }
 }
