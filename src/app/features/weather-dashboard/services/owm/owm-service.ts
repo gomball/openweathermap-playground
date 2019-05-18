@@ -18,7 +18,7 @@ const OWM_API_URL_MAP: { [K in OwmRequest]: string } = {
 const OWM_API_KEY = '180bf49294c9158d4f3c89691f87c1ac';
 
 @Injectable()
-export class OwmServiceService {
+export class OwmService {
   private readonly _httpClient: HttpClient;
 
   constructor() {

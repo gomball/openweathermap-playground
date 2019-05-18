@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { OwmServiceService } from './owm-service.service';
+import { OwmService } from './owm-service';
 
-describe('OwmServiceService', () => {
+describe('OwmService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: OwmServiceService = TestBed.get(OwmServiceService);
+    const service: OwmService = TestBed.get(OwmService);
     expect(service).toBeTruthy();
   });
 });
