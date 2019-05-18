@@ -19,7 +19,9 @@
       </mat-error>
     </mat-card-content>
     <mat-card-actions class="end-xs">
-      <button mat-button routerLink="/weather-dashboard" [disabled]="citiesFormControl.invalid">{{ 'next' | translate | uppercase }}</button>
+      <button mat-button color="accent" routerLink="/weather-dashboard" [disabled]="citiesFormControl.invalid">
+        {{ 'next' | translate | uppercase }}
+      </button>
     </mat-card-actions>
   </mat-card>
 </div>
