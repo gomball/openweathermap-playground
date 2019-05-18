@@ -1,3 +1,20 @@
-<p>
-  city-weather works!
-</p>
+<mat-card>
+  <mat-card-header>
+    <div mat-card-avatar>
+      <mat-icon svgIcon="map-marker"></mat-icon>
+    </div>
+    <mat-card-title>{{ city?.name }}</mat-card-title>
+    <mat-card-subtitle>lat: {{ city?.coord.lat }}<br />lon: {{ city?.coord.lon }}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipiscing elit, mi in massa nunc curabitur fusce mattis, rutrum fames montes taciti tortor
+      sociis. Faucibus platea turpis tristique senectus habitant potenti nec aptent bibendum, vel vulputate consequat accumsan felis
+      curabitur mattis mi, suspendisse pulvinar duis risus nisi penatibus rutrum per.
+    </p>
+  </mat-card-content>
+  <mat-card-actions class="end-xs">
+    <button mat-button>{{ 'map' | translate | uppercase }}</button>
+    <button mat-button>{{ 'history' | translate | uppercase }}</button>
+  </mat-card-actions>
+</mat-card>
