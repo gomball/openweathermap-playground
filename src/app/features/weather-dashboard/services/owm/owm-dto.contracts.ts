@@ -14,7 +14,6 @@ export type WeatherCondition =
   | 'Dust'
   | 'Fog'
   | 'Sand'
-  | 'Dust'
   | 'Ash'
   | 'Squall'
   | 'Tornado';
