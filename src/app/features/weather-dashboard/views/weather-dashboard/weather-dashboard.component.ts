@@ -1,4 +1,5 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { CityQuery } from '../../../../features/city-selector/state/city.query';
 
 @Component({
   selector: 'owm-pg-weather-dashboard',
@@ -6,11 +7,6 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
   styleUrls: ['./weather-dashboard.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class WeatherDashboardComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit() {
-  }
-
+export class WeatherDashboardComponent {
+  constructor(public readonly cityQuery: CityQuery) { }
 }
