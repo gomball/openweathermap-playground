@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   { path: '', redirectTo: '/city-selector', pathMatch: 'full' },
   { path: 'city-selector', loadChildren: '../features/city-selector/city-selector.module#CitySelectorModule' },
+  { path: 'weather-dashboard', loadChildren: '../features/weather-dashboard/weather-dashboard.module#WeatherDashboardModule' },
   { path: '**', redirectTo: '/not-found', pathMatch: 'full' }
 ];
 
