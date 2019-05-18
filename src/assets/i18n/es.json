@@ -1,3 +1,20 @@
 {
-  "test": "test"
+  "nextRefresh": "próxima actualización",
+  "weatherCondition": {
+    "clear": "despejado",
+    "clouds": "nuboso",
+    "drizzle": "lluvia ligera",
+    "rain": "llubia",
+    "snow": "nieve",
+    "thunderstorm": "tormenta",
+    "mist": "niebla",
+    "smoke": "humo",
+    "haze": "haze",
+    "dust": "polvo",
+    "fog": "bruma",
+    "sand": "arena",
+    "ash": "ceniza",
+    "squall": "squall",
+    "tornado": "tornado"
+  }
 }
