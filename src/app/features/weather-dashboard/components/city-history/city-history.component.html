@@ -1,0 +1,20 @@
+<!--
+<h1 mat-dialog-title color="primary" class="d-flex align-items-center mb-3 pb-2">
+  <mat-icon svgIcon="restore-clock" class="mr-2"></mat-icon>
+  {{ 'history' | translate }}: {{ data?.city.name }}, {{ data?.city.country }}
+</h1>
+-->
+<mat-toolbar color="primary">
+  <button mat-icon-button>
+    <mat-icon svgIcon="restore-clock"></mat-icon>
+  </button>
+  <span class="title">{{ 'history' | translate }}: {{ data?.city.name }}, {{ data?.city.country }}</span>
+</mat-toolbar>
+<div mat-dialog-content>
+  <ng-content select="[zsf-fc-modal-content]"></ng-content>
+</div>
+<mat-dialog-actions align="end" class="py-3">
+  <button mat-button color="accent" (click)="dialogRef.close()">
+    {{ 'close' | translate | uppercase }}
+  </button>
+</mat-dialog-actions>
