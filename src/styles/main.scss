@@ -6,6 +6,11 @@
 @import './material-themes/initialize';
 @import './material-themes/default';
 
+
+body {
+  height: 100vh;
+}
+
 .d-flex {
   display: flex;
 }
