@@ -11,7 +11,12 @@ export class CityHistoryService {
   constructor(private readonly _store: CityHistoryStore, cityQuery: CityQuery, private readonly _storageService: StorageService) {
     cityQuery.available$.pipe(first()).subscribe((cities) => {
       const state: CityHistoryState = {};
-      cities.forEach((c) => (state[c.id] = this._storageService.getObject<CityHistoryRecord[]>('' + c.id)));
+      cities.forEach((city) => {
+        const history = this._storageService.getObject<CityHistoryRecord[]>('' + city.id);
+        if (!!history) {
+          state[city.id] = history;
+        }
+      });
       this._store.update(state);
     });
   }
