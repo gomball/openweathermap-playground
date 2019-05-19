@@ -1,0 +1,21 @@
+<div class="row middle-xs">
+  <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3">
+    <div class="d-flex mat-h3 m-0">{{ 'nextRefresh' | translate }}: {{ getMinutes(owmRequestTimer$ | async) }}</div>
+  </div>
+  <div class="col-xs-8 col-sm-5 col-md-4 col-lg-3">
+    <mat-slider
+      [formControl]="requestDelayFormControl"
+      min="30"
+      max="300"
+      step="30"
+      thumbLabel
+      [displayWith]="getMinutes"
+      [style.width.%]="100"
+    ></mat-slider>
+  </div>
+</div>
+<div class="row around-md">
+  <div *ngFor="let city of cityQuery.selected$ | async; let index = index" class="col-xs-12 col-md-6 col-lg-3">
+    <owm-pg-city-weather [city]="city" [index]="index" [requestCountdown]="owmRequestTimer$ | async"></owm-pg-city-weather>
+  </div>
+</div>

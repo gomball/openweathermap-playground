@@ -1,0 +1,18 @@
+[weather-condition-icon] {
+  height: 64px;
+  width: 64px;
+}
+
+mat-list {
+  ::ng-deep {
+    mat-list-item {
+      height: 40px;
+      .mat-list-item-content {
+        padding: 0 !important;
+        .mat-list-text {
+          padding-left: 8px !important;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,4 @@
+[outlet-container] {
+  height: calc(100vh - 80px); // 96 => topbar heigth (64) + main canvas 'y' padding (8x2)
+  padding: 8px 16px;
+}

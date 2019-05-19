@@ -3,7 +3,9 @@
 }
 
 .title {
+  overflow: hidden;
   padding-left: 8px;
+  text-overflow: ellipsis;
 }
 
 .flex-fill {

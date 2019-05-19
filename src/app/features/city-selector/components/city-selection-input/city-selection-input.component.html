@@ -5,7 +5,7 @@
       <mat-icon matChipRemove svgIcon="close"></mat-icon>
     </mat-chip>
     <input
-      placeholder="cities"
+      [placeholder]="'cities' | translate"
       #cityInput
       [formControl]="formControl"
       [matAutocomplete]="autocompete"

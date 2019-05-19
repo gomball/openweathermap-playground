@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
-import { MatAutocompleteModule, MatCardModule, MatChipsModule, MatFormFieldModule } from '@angular/material';
+import { MatAutocompleteModule, MatChipsModule, MatFormFieldModule } from '@angular/material';
 import { SharedModule } from '../../shared/shared.module';
 import { CitySelectorRoutingModule } from './city-selector-routing.module';
 import { CitySelectionInputComponent } from './components/city-selection-input/city-selection-input.component';
@@ -9,9 +8,7 @@ import { CitySelectorComponent } from './views/city-selector/city-selector.compo
 
 @NgModule({
   imports: [
-    ReactiveFormsModule,
     MatAutocompleteModule,
-    MatCardModule,
     MatFormFieldModule,
     MatChipsModule,
     SharedModule,
