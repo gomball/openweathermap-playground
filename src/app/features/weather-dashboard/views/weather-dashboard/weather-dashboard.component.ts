@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import * as moment from 'moment';
 import { timer } from 'rxjs';
 import { map, startWith, switchMap } from 'rxjs/operators';
 import { CityQuery } from '../../../city-selector/state/city.query';
@@ -20,4 +21,11 @@ export class WeatherDashboardComponent {
   );
 
   constructor(public readonly cityQuery: CityQuery) {}
+
+  getMinutes(requestDelaySeconds: number): string {
+    const duration = moment.duration(requestDelaySeconds, 'seconds');
+    const minutes = duration.get('minutes');
+    const seconds = ('' + (100 + duration.get('seconds'))).substring(1);
+    return `${minutes}:${seconds}`;
+  }
 }
