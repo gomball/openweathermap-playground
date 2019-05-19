@@ -2,8 +2,10 @@
   "cities": "ciudades",
   "city": "ciudad",
   "citySelector": "selector de ciudades",
+  "history": "histórico",
   "next": "siguiente",
   "nextRefresh": "próxima actualización",
+  "map": "mapa",
   "messages": {
     "selectCities": "selecciona al menos una ciudad y como mucho cuatro",
     "selectCitiesLongExplain": "no están todas, pero tal vez esté la tuya, o tu próximo destino de vacaciones, ...quién sabe. escribe, selecciona y ¡sal de dudas!"
