@@ -1,10 +1,13 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { timer } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
+import { ModalService } from 'src/app/core/services/modal/modal.service';
 import { City } from '../../../../domain/city';
 import { CurrentWeatherContract, WeatherCondition } from '../../services/owm/owm-dto.contracts';
 import { OwmService } from '../../services/owm/owm-service';
 import { CityHistoryService } from '../../state/city-history.service';
+import { CityHistoryComponent } from '../city-history/city-history.component';
+import { CityHistoryQuery } from '../../state/city-history.query';
 
 const WEATHER_CONDITION_ICON_MAP: { [K in WeatherCondition]: string } = {
   Clear: 'weather-sunny',
@@ -41,6 +44,8 @@ export class CityWeatherComponent implements OnChanges {
   constructor(
     private readonly _owmService: OwmService,
     private readonly _cityHistoryService: CityHistoryService,
+    private readonly _cityHistoryQuery: CityHistoryQuery,
+    private readonly _modalService: ModalService,
     private readonly _cdr: ChangeDetectorRef
   ) {}
 
@@ -53,6 +58,12 @@ export class CityWeatherComponent implements OnChanges {
     if (!!requestCountdownChange && requestCountdownChange.currentValue === 0) {
       this._fetchWeatherData();
     }
+  }
+
+  openHistory(): void {
+    const city = this.city;
+    const history = this._cityHistoryQuery.getCityHistory(this.city.id);
+    this._modalService.open$(CityHistoryComponent, { city, history }, { panelClass: 'headed-full-screen-dialog' });
   }
 
   private _fetchWeatherData(): void {

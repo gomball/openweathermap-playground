@@ -42,6 +42,6 @@
   </mat-card-content>
   <mat-card-actions class="end-xs">
     <button mat-button color="accent">{{ 'map' | translate | uppercase }}</button>
-    <button mat-button color="accent">{{ 'history' | translate | uppercase }}</button>
+    <button mat-button color="accent" (click)="openHistory()">{{ 'history' | translate | uppercase }}</button>
   </mat-card-actions>
 </mat-card>

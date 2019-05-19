@@ -1,0 +1,27 @@
+body {
+  height: 100vh;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.m-0 {
+  margin: 0;
+}
+
+// material dialog pane styles
+.headed-dialog mat-dialog-container {
+  padding: 0 0 24px;
+}
+
+.full-screen-dialog mat-dialog-container {
+  height: 100vh;
+  width: 100vw;
+}
+
+.headed-full-screen-dialog mat-dialog-container {
+  height: 100vh;
+  padding: 0 0 24px;
+  width: 100vw;
+}
