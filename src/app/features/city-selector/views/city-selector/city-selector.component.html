@@ -9,9 +9,7 @@
     </mat-card-header>
     <mat-card-content>
       <p>
-        Lorem ipsum dolor sit amet consectetur adipiscing elit, mi in massa nunc curabitur fusce mattis, rutrum fames montes taciti tortor
-        sociis. Faucibus platea turpis tristique senectus habitant potenti nec aptent bibendum, vel vulputate consequat accumsan felis
-        curabitur mattis mi, suspendisse pulvinar duis risus nisi penatibus rutrum per.
+        {{ 'messages.selectCitiesLongExplain' | translate }}
       </p>
       <owm-pg-city-selection-input [formControl]="citiesFormControl"></owm-pg-city-selection-input>
       <mat-error *ngIf="citiesFormControl.invalid && citiesFormControl.touched">

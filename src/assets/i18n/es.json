@@ -1,10 +1,18 @@
 {
+  "cities": "ciudades",
+  "city": "ciudad",
+  "citySelector": "selector de ciudades",
+  "next": "siguiente",
   "nextRefresh": "próxima actualización",
+  "messages": {
+    "selectCities": "selecciona al menos una ciudad y como mucho cuatro",
+    "selectCitiesLongExplain": "no están todas, pero tal vez esté la tuya, o tu próximo destino de vacaciones, ...quién sabe. escribe, selecciona y ¡sal de dudas!"
+  },
   "weatherCondition": {
     "clear": "despejado",
     "clouds": "nuboso",
     "drizzle": "lluvia ligera",
-    "rain": "llubia",
+    "rain": "lluvia",
     "snow": "nieve",
     "thunderstorm": "tormenta",
     "mist": "niebla",
