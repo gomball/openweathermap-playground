@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { MatDialogModule, MatListModule, MatSliderModule, MatToolbarModule } from '@angular/material';
+import { MatDialogModule, MatListModule, MatSliderModule, MatTableModule, MatToolbarModule } from '@angular/material';
 import { ModalService } from 'src/app/core/services/modal/modal.service';
 import { SharedModule } from '../../shared/shared.module';
 import { CityHistoryComponent } from './components/city-history/city-history.component';
@@ -9,7 +9,7 @@ import { WeatherDashboardComponent } from './views/weather-dashboard/weather-das
 import { WeatherDashboardRoutingModule } from './weather-dashboard-routing.module';
 
 @NgModule({
-  imports: [MatDialogModule, MatListModule, MatSliderModule, MatToolbarModule, SharedModule, WeatherDashboardRoutingModule],
+  imports: [MatDialogModule, MatListModule, MatSliderModule, MatTableModule, MatToolbarModule, SharedModule, WeatherDashboardRoutingModule],
   declarations: [CityHistoryComponent, CityWeatherComponent, WeatherDashboardComponent],
   entryComponents: [CityHistoryComponent],
   exports: [],
