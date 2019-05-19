@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { cloneDeep, forEach, forIn } from 'lodash';
+import * as moment from 'moment';
 
 const ISO_DATE_REGEX = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}.*/;
 
@@ -26,7 +27,7 @@ export class SerializationService {
     switch (Object.prototype.toString.call(_obj)) {
       case '[object String]':
         if (ISO_DATE_REGEX.test(_obj)) {
-          _obj = Date.parse(_obj); // new Date(Date.parse(obj.substr(0, 19)));
+          _obj = moment(_obj);
         }
         break;
       case '[object Object]':
@@ -49,13 +50,17 @@ export class SerializationService {
     let _obj = SerializationService._manageRecursion(obj, recursionLevel);
     switch (Object.prototype.toString.call(_obj)) {
       case '[object Date]':
-        _obj = (_obj as Date).toISOString(); // .toISOString();
+        _obj = moment(_obj).toISOString();
         break;
       case '[object Object]':
-        forIn(_obj, (v, k) => {
-          _obj[k] = this._js2json(v, recursionLevel++);
-          return true;
-        });
+        if (moment.isMoment(_obj)) {
+          _obj = _obj.toISOString();
+        } else {
+          forIn(_obj, (v, k) => {
+            _obj[k] = this._js2json(v, recursionLevel++);
+            return true;
+          });
+        }
         break;
       case '[object Array]':
         forEach(_obj, (v, i) => {
