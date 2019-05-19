@@ -1,6 +1,6 @@
 import { HttpClientModule } from '@angular/common/http';
 import { Injector, ModuleWithProviders, NgModule, Optional, SkipSelf } from '@angular/core';
-import { MatButtonModule, MatIconModule, MatMenuModule, MatSnackBarModule, MatToolbarModule } from '@angular/material';
+import { MatButtonModule, MatDialogModule, MatIconModule, MatMenuModule, MatSnackBarModule, MatToolbarModule } from '@angular/material';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
@@ -20,6 +20,7 @@ const COMPONENTS = [MainCanvasComponent, ToolbarComponent];
     HttpClientModule,
     RouterModule,
     MatButtonModule,
+    MatDialogModule,
     MatIconModule,
     MatMenuModule,
     MatSnackBarModule,
