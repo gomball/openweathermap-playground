@@ -1,0 +1,14 @@
+<mat-toolbar color="primary">
+  <button mat-icon-button (click)="dialogRef.close()">
+    <mat-icon svgIcon="close"></mat-icon>
+  </button>
+  <div class="center-xs w-100">
+    <button mat-icon-button>
+      <mat-icon svgIcon="map"></mat-icon>
+    </button>
+    <span class="title">{{ data?.city.name }}, {{ data?.city.country }}</span>
+  </div>
+</mat-toolbar>
+<div mat-dialog-content class="m-0 h-100">
+  <div id="{{ mapId }}" class="w-100 h-100"></div>
+</div>
