@@ -61,7 +61,7 @@ export class CityWeatherComponent implements OnChanges {
 
   openHistory(): void {
     const city = this.city;
-    this._modalService.open$(CityHistoryComponent, { city }, { panelClass: 'headed-full-screen-dialog' });
+    this._modalService.open$(CityHistoryComponent, { city }, { panelClass: 'full-screen-dialog' });
   }
 
   private _fetchWeatherData(): void {
