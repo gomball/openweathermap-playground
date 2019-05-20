@@ -7,40 +7,42 @@
     <mat-card-subtitle>lat: {{ city?.coord.lat }}<br />lon: {{ city?.coord.lon }}</mat-card-subtitle>
   </mat-card-header>
   <mat-card-content>
-    <div class="row">
-      <div class="col-xs-6">
-        <div class="center-xs">
-          <mat-icon weather-condition-icon [svgIcon]="weatherConditionIcons[(currentWeather?.atmosphere.condition)]"></mat-icon>
-          <h4 class="mat-h4">{{ 'weatherCondition.' + (currentWeather?.atmosphere.condition | lowercase) | translate }}</h4>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-6">
+          <div class="text-center">
+            <mat-icon weather-condition-icon [svgIcon]="weatherConditionIcons[(currentWeather?.atmosphere.condition)]"></mat-icon>
+            <h4 class="mat-h4">{{ 'weatherCondition.' + (currentWeather?.atmosphere.condition | lowercase) | translate }}</h4>
+          </div>
+          <mat-list dense>
+            <mat-list-item [style.height.px]="32">
+              <mat-icon mat-list-icon svgIcon="thermometer-lines"></mat-icon>
+              <h4 mat-line>{{ currentWeather?.temperature.current || '___' }}ºC</h4>
+            </mat-list-item>
+            <mat-list-item [style.height.px]="32">
+              <mat-icon mat-list-icon svgIcon="ruler"></mat-icon>
+              <h4 mat-line>{{ currentWeather?.atmosphere.pressure || '___' }}mbar</h4>
+            </mat-list-item>
+          </mat-list>
         </div>
-        <mat-list dense>
-          <mat-list-item [style.height.px]="32">
-            <mat-icon mat-list-icon svgIcon="thermometer-lines"></mat-icon>
-            <h4 mat-line>{{ currentWeather?.temperature.current || '___' }}ºC</h4>
-          </mat-list-item>
-          <mat-list-item [style.height.px]="32">
-            <mat-icon mat-list-icon svgIcon="ruler"></mat-icon>
-            <h4 mat-line>{{ currentWeather?.atmosphere.pressure || '___' }}mbar</h4>
-          </mat-list-item>
-        </mat-list>
-      </div>
-      <div class="col-xs-6">
-        <mat-list dense>
-          <mat-list-item>
-            <mat-icon mat-list-icon svgIcon="weather-partlycloudy"></mat-icon>
-            <h4 mat-line>{{ currentWeather?.atmosphere.humidity || '___' }}%</h4>
-            <h5 mat-line>{{ currentWeather?.cloudiness || '___' }}%</h5>
-          </mat-list-item>
-          <mat-list-item>
-            <mat-icon mat-list-icon svgIcon="weather-windy"></mat-icon>
-            <h4 mat-line>{{ currentWeather?.wind.speed || '___' }}m/s</h4>
-            <h5 mat-line>{{ currentWeather?.wind.deg || '___' }}º</h5>
-          </mat-list-item>
-        </mat-list>
+        <div class="col-6">
+          <mat-list dense>
+            <mat-list-item>
+              <mat-icon mat-list-icon svgIcon="weather-partlycloudy"></mat-icon>
+              <h4 mat-line>{{ currentWeather?.atmosphere.humidity || '___' }}%</h4>
+              <h5 mat-line>{{ currentWeather?.cloudiness || '___' }}%</h5>
+            </mat-list-item>
+            <mat-list-item>
+              <mat-icon mat-list-icon svgIcon="weather-windy"></mat-icon>
+              <h4 mat-line>{{ currentWeather?.wind.speed || '___' }}m/s</h4>
+              <h5 mat-line>{{ currentWeather?.wind.deg || '___' }}º</h5>
+            </mat-list-item>
+          </mat-list>
+        </div>
       </div>
     </div>
   </mat-card-content>
-  <mat-card-actions class="end-xs">
+  <mat-card-actions class="text-right">
     <button mat-button color="accent" (click)="openMap()">{{ 'map' | translate | uppercase }}</button>
     <button mat-button color="accent" (click)="openHistory()">{{ 'history' | translate | uppercase }}</button>
   </mat-card-actions>

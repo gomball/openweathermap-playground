@@ -10,6 +10,7 @@ import OlXYZ from 'ol/source/XYZ';
 import OlView from 'ol/View';
 import { combineLatest, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { SystemQuery } from '../../../../core/state/system/system.query';
 import { City } from '../../../../domain/city';
 import { CurrentWeatherContract, CurrentWeatherResponseContract, WeatherCondition } from './owm-dto.contracts';
 
@@ -26,11 +27,9 @@ const OWM_API_URL_MAP: { [K in OwmRequest]: string } = {
   map: 'https://tile.openweathermap.org/map/clouds/{z}/{x}/{y}.png'
 };
 
-const OWM_API_KEY = '180bf49294c9158d4f3c89691f87c1ac';
-
 @Injectable()
 export class OwmService {
-  constructor(private readonly _httpClient: HttpClient) {}
+  constructor(private readonly _httpClient: HttpClient, private readonly _systemQuery: SystemQuery) {}
 
   getCurrentAndFiveDayForecast$(city: City): Observable<FullOwmData> {
     return combineLatest(this.getCurrent$(city) /*this.getFiveDayForecast(city) */).pipe(
@@ -56,7 +55,7 @@ export class OwmService {
       view: new OlView({ center: transform([city.coord.lon, city.coord.lat], 'EPSG:4326', 'EPSG:3857'), zoom: 10 }),
       layers: [
         new OlTileLayer({ name: 'OSM', source: new OlOSM() }),
-        new OlTileLayer({ name: 'OWM', source: new OlXYZ({ url: OWM_API_URL_MAP.map + '?appid=' + OWM_API_KEY }) })
+        new OlTileLayer({ name: 'OWM', source: new OlXYZ({ url: `${OWM_API_URL_MAP.map}?appid=${this._systemQuery.owmAppid}` }) })
       ]
     });
   }
@@ -64,7 +63,7 @@ export class OwmService {
   private _getHttpParams(params: any): HttpParams {
     const fromObject = Object.assign(
       {
-        appid: OWM_API_KEY,
+        appid: this._systemQuery.owmAppid,
         units: 'metric'
       },
       params

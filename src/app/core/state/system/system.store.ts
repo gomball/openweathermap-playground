@@ -2,16 +2,21 @@ import { Injectable } from '@angular/core';
 import { Store, StoreConfig } from '@datorama/akita';
 
 export type ScreenSize = 'S' | 'M' | 'L';
+export type Theme = 'light' | 'dark';
 
 export interface SystemState {
   screenSize: ScreenSize;
+  theme: Theme;
   pendingHttpRequest: number;
+  owmAppid: string;
 }
 
 export function createInitialSystemState(): SystemState {
   return {
     screenSize: null,
-    pendingHttpRequest: 0
+    theme: 'light',
+    pendingHttpRequest: 0,
+    owmAppid: null
   };
 }
 

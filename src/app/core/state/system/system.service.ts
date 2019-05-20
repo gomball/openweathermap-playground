@@ -1,11 +1,16 @@
 import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/layout';
 import { Injectable } from '@angular/core';
 import { distinctUntilChanged, filter, map } from 'rxjs/operators';
-import { ScreenSize, SystemStore } from './system.store';
+import { StorageService } from '../../services/storage/storage.service';
+import { ScreenSize, SystemStore, Theme } from './system.store';
 
 @Injectable({ providedIn: 'root' })
 export class SystemService {
-  constructor(private readonly _store: SystemStore, breakpointObserver: BreakpointObserver) {
+  constructor(
+    private readonly _store: SystemStore,
+    private readonly _storageService: StorageService,
+    breakpointObserver: BreakpointObserver
+  ) {
     breakpointObserver
       .observe([Breakpoints.XSmall, Breakpoints.Small, Breakpoints.Medium, Breakpoints.Large])
       .pipe(
@@ -14,6 +19,15 @@ export class SystemService {
         distinctUntilChanged()
       )
       .subscribe((screenSize) => this._store.update((state) => ({ ...state, screenSize })));
+    const theme = _storageService.getValue('theme') as Theme;
+    if (!!theme) {
+      this.setTheme(theme);
+    }
+  }
+
+  setTheme(theme: Theme): void {
+    this._storageService.setValue('theme', theme);
+    this._store.update((state) => ({ ...state, theme }));
   }
 
   setPendingHttpRequestCount(operation: 'increase' | 'decrease'): void {
@@ -21,6 +35,10 @@ export class SystemService {
       ...state,
       pendingHttpRequest: operation === 'increase' ? state.pendingHttpRequest + 1 : state.pendingHttpRequest - 1
     }));
+  }
+
+  setOwmAppid(owmAppid: string): void {
+    this._store.update((state) => ({ ...state, owmAppid }));
   }
 
   private _getScreenSize(bp: BreakpointState): ScreenSize {

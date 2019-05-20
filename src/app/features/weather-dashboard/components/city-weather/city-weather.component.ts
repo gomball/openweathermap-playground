@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { timer } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
-import { ModalService } from 'src/app/core/services/modal/modal.service';
+import { ModalService } from '../../../../core/services/modal/modal.service';
 import { City } from '../../../../domain/city';
 import { CurrentWeatherContract, WeatherCondition } from '../../services/owm/owm-dto.contracts';
 import { OwmService } from '../../services/owm/owm-service';

@@ -1,4 +1,4 @@
 <owm-pg-toolbar></owm-pg-toolbar>
-<div outlet-container>
+<div outlet-container [@fadeAnimation]="currentRouteKey$ | async">
   <router-outlet></router-outlet>
 </div>

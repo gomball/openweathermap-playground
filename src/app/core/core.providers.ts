@@ -1,5 +1,5 @@
 import { HTTP_INTERCEPTORS, HttpClient } from '@angular/common/http';
-import { APP_INITIALIZER, Provider } from '@angular/core';
+import { APP_INITIALIZER, LOCALE_ID, Provider } from '@angular/core';
 import { GestureConfig, MatIconRegistry } from '@angular/material';
 import { DomSanitizer, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
 import {
@@ -12,11 +12,6 @@ import { HttpRequestCounterInterceptor } from './interceptors/http-request-count
 import { I18nService } from './services/i18n/i18n.service';
 import { MissingTranslationHandler } from './types/missing-translation-handler';
 import { TranslationLoader } from './types/translation-loader';
-
-export const initializeLangFnFactory = (i18nService: I18nService): (() => Promise<any>) => () =>
-  new Promise((resolve, reject) => {
-    setTimeout(() => resolve());
-  });
 
 export const registerMdiIconsFnFactory = (matIconRegistry: MatIconRegistry, domSanitizer: DomSanitizer): (() => Promise<any>) => () =>
   new Promise((resolve, reject) => {
@@ -32,6 +27,14 @@ export const APP_INITIALIZER_PROVIDERS: Provider[] = [
     multi: true
   }
 ];
+
+export const appLocaleIdFnFactory = (i18nService: I18nService) => i18nService.getLocale();
+
+export const LOCALE_ID_PROVIDER: Provider = {
+  provide: LOCALE_ID,
+  useFactory: appLocaleIdFnFactory,
+  deps: [I18nService]
+};
 
 export const HTTP_INTERCEPTORS_PROVIDERS: Provider[] = [
   {

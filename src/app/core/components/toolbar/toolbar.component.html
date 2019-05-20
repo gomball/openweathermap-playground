@@ -10,6 +10,6 @@
 </mat-toolbar>
 
 <mat-menu #themeMenu="matMenu">
-  <button mat-menu-item (click)="setTheme('light')">{{ 'light' | uppercase }}</button>
-  <button mat-menu-item (click)="setTheme('dark')">{{ 'dark' | uppercase }}</button>
+  <button mat-menu-item (click)="systemService.setTheme('light')">{{ 'light' | translate | uppercase }}</button>
+  <button mat-menu-item (click)="systemService.setTheme('dark')">{{ 'dark' | translate | uppercase }}</button>
 </mat-menu>

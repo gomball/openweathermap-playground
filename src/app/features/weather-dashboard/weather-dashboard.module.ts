@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { MatDialogModule, MatListModule, MatSliderModule, MatTableModule, MatToolbarModule } from '@angular/material';
-import { ModalService } from 'src/app/core/services/modal/modal.service';
+import { ModalService } from '../../core/services/modal/modal.service';
 import { SharedModule } from '../../shared/shared.module';
 import { CityHistoryComponent } from './components/city-history/city-history.component';
 import { CityMapComponent } from './components/city-map/city-map.component';
