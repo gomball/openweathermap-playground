@@ -1,4 +1,5 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
+import { ChangeDetectionStrategy, Component, Inject } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { filter, first, map } from 'rxjs/operators';
@@ -26,7 +27,8 @@ export class MainCanvasComponent {
     systemQuery: SystemQuery,
     modalService: ModalService,
     storageService: StorageService,
-    router: Router
+    router: Router,
+    @Inject(DOCUMENT) document: Document
   ) {
     this.currentRouteKey$ = router.events.pipe(
       filter((e) => e instanceof NavigationEnd),
@@ -42,6 +44,11 @@ export class MainCanvasComponent {
             storageService.setValue('owmAppid', newOwmAppId);
           });
       }
+    });
+    systemQuery.theme$.subscribe((theme) => {
+      document.body.classList.remove(`light-theme`);
+      document.body.classList.remove(`dark-theme`);
+      document.body.classList.add(`${theme}-theme`);
     });
   }
 }
