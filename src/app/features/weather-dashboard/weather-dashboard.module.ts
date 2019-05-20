@@ -3,6 +3,7 @@ import { MatDialogModule, MatListModule, MatSliderModule, MatTableModule, MatToo
 import { ModalService } from 'src/app/core/services/modal/modal.service';
 import { SharedModule } from '../../shared/shared.module';
 import { CityHistoryComponent } from './components/city-history/city-history.component';
+import { CityMapComponent } from './components/city-map/city-map.component';
 import { CityWeatherComponent } from './components/city-weather/city-weather.component';
 import { OwmService } from './services/owm/owm-service';
 import { WeatherDashboardComponent } from './views/weather-dashboard/weather-dashboard.component';
@@ -10,8 +11,8 @@ import { WeatherDashboardRoutingModule } from './weather-dashboard-routing.modul
 
 @NgModule({
   imports: [MatDialogModule, MatListModule, MatSliderModule, MatTableModule, MatToolbarModule, SharedModule, WeatherDashboardRoutingModule],
-  declarations: [CityHistoryComponent, CityWeatherComponent, WeatherDashboardComponent],
-  entryComponents: [CityHistoryComponent],
+  declarations: [CityHistoryComponent, CityMapComponent, CityWeatherComponent, WeatherDashboardComponent],
+  entryComponents: [CityHistoryComponent, CityMapComponent],
   exports: [],
   providers: [
     ModalService, // => provided here again intenttionally
