@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, Inject, OnInit } from '@angular/core';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
-import { City } from 'src/app/domain/city';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
+import { City } from '../../../../domain/city';
 import { OwmService } from '../../services/owm/owm-service';
 
 export interface CityMapComponentInput {

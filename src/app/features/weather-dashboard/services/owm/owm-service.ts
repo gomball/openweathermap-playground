@@ -10,7 +10,7 @@ import OlXYZ from 'ol/source/XYZ';
 import OlView from 'ol/View';
 import { combineLatest, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { SystemQuery } from 'src/app/core/state/system/system.query';
+import { SystemQuery } from '../../../../core/state/system/system.query';
 import { City } from '../../../../domain/city';
 import { CurrentWeatherContract, CurrentWeatherResponseContract, WeatherCondition } from './owm-dto.contracts';
 
