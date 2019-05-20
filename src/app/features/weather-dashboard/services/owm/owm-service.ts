@@ -2,6 +2,12 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { get } from 'lodash';
 import * as moment from 'moment';
+import OlTileLayer from 'ol/layer/Tile';
+import OlMap from 'ol/Map';
+import { transform } from 'ol/proj';
+import OlOSM from 'ol/source/OSM';
+import OlXYZ from 'ol/source/XYZ';
+import OlView from 'ol/View';
 import { combineLatest, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { City } from '../../../../domain/city';
@@ -42,6 +48,17 @@ export class OwmService {
   getFiveDayForecast(city: City): Observable<any> {
     const params = this._getHttpParams({ id: city.id });
     return this._httpClient.get(OWM_API_URL_MAP.fiveDayForecast, { params });
+  }
+
+  getMap(mapId: string, city: City): any {
+    return new OlMap({
+      target: mapId,
+      view: new OlView({ center: transform([city.coord.lon, city.coord.lat], 'EPSG:4326', 'EPSG:3857'), zoom: 10 }),
+      layers: [
+        new OlTileLayer({ name: 'OSM', source: new OlOSM() }),
+        new OlTileLayer({ name: 'OWM', source: new OlXYZ({ url: OWM_API_URL_MAP.map + '?appid=' + OWM_API_KEY }) })
+      ]
+    });
   }
 
   private _getHttpParams(params: any): HttpParams {
