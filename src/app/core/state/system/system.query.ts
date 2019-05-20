@@ -8,6 +8,11 @@ export class SystemQuery extends Query<SystemState> {
   screenSize$ = this.select((state) => state.screenSize);
   screenSizeStyleClass$ = this.select((state) => 'screen-size-' + toLower(state.screenSize));
   pendingHttpRequest$ = this.select((state) => state.pendingHttpRequest);
+  owmAppid$ = this.select((state) => state.owmAppid);
+
+  get owmAppid(): string {
+    return this.getValue().owmAppid;
+  }
 
   constructor(protected store: SystemStore) {
     super(store);

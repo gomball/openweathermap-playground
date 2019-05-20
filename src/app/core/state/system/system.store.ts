@@ -6,12 +6,14 @@ export type ScreenSize = 'S' | 'M' | 'L';
 export interface SystemState {
   screenSize: ScreenSize;
   pendingHttpRequest: number;
+  owmAppid: string;
 }
 
 export function createInitialSystemState(): SystemState {
   return {
     screenSize: null,
-    pendingHttpRequest: 0
+    pendingHttpRequest: 0,
+    owmAppid: null
   };
 }
 

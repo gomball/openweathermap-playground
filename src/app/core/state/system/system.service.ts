@@ -23,6 +23,10 @@ export class SystemService {
     }));
   }
 
+  setOwmAppid(owmAppid: string): void {
+    this._store.update((state) => ({ ...state, owmAppid }));
+  }
+
   private _getScreenSize(bp: BreakpointState): ScreenSize {
     let retVal: ScreenSize = null;
     if (bp.breakpoints[Breakpoints.XSmall]) {
