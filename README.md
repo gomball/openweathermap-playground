@@ -1,6 +1,6 @@
 # OpenWeatherMap Playground
 
-This is a Prove Of Concept. Its a simple SPA made with angular and some pieces of its ecosystem. Developed barely in 20/25 hours during spare ties in a week. Please be lenient...
+This is a Prove Of Concept. Its a simple SPA made with angular and some pieces of its ecosystem. Developed barely in 20/25 hours during the spare times of a single week. Please be lenient...
 
 ## Main feature:
  - Select among a series of cities and get its weather. Eache request is stored  as a part o city's history.
