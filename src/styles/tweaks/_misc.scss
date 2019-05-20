@@ -25,13 +25,14 @@ body {
 // material dialog pane styles
 .mat-dialog-container {
   overflow: hidden !important;
-  padding: 0 0 24px !important;
+  padding: 0 0 0px !important;
 }
 
 .full-screen-dialog mat-dialog-container {
   height: 90vh;
   width: 90vw;
   .mat-dialog-content {
-    max-height: 78vh;
+    max-height: 81vh;
+    padding: 0 !important;
   }
 }
