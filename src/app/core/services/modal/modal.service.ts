@@ -13,7 +13,7 @@ const DEFAULT_MODAL_OPTIONS: MatDialogConfig<any> = {
 export class ModalService {
   constructor(private readonly _matDialogService: MatDialog) {}
 
-  open$<TComp, TIn = any, TOut = any>(type: Type<TComp>, data: TIn, config?: Partial<MatDialogConfig<TIn>>): Observable<TOut> {
+  open$<TComp, TIn = any, TOut = any>(type: Type<TComp>, data?: TIn, config?: Partial<MatDialogConfig<TIn>>): Observable<TOut> {
     const options = assign({}, DEFAULT_MODAL_OPTIONS, config, { data });
     const dialogRef = this._matDialogService.open<TComp, TIn, TOut>(type, options);
     return dialogRef.afterClosed();

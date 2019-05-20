@@ -1,0 +1,18 @@
+<mat-toolbar color="primary">
+  <div class="w-100">
+    <button mat-icon-button>
+      <mat-icon svgIcon="help"></mat-icon>
+    </button>
+    <span class="title">o.w.m. app id</span>
+  </div>
+</mat-toolbar>
+<div mat-dialog-content class="m-0 pt-4">
+  <mat-form-field class="w-100">
+    <input matInput [placeholder]="'owmAppid' | translate" [formControl]="formControl" />
+  </mat-form-field>
+</div>
+<mat-dialog-actions align="end" class="pb-5">
+  <button mat-button color="accent" [disabled]="formControl.invalid" (click)="close()">
+    {{ 'accept' | translate | uppercase }}
+  </button>
+</mat-dialog-actions>

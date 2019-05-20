@@ -1,17 +1,29 @@
 import { HttpClientModule } from '@angular/common/http';
 import { Injector, ModuleWithProviders, NgModule, Optional, SkipSelf } from '@angular/core';
-import { MatButtonModule, MatDialogModule, MatIconModule, MatMenuModule, MatSnackBarModule, MatToolbarModule } from '@angular/material';
+import { ReactiveFormsModule } from '@angular/forms';
+import {
+  MatButtonModule,
+  MatDialogModule,
+  MatFormFieldModule,
+  MatIconModule,
+  MatInputModule,
+  MatMenuModule,
+  MatSnackBarModule,
+  MatToolbarModule
+} from '@angular/material';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
 import { TranslateModule as NgxTranslateModule } from '@ngx-translate/core';
 import { MainCanvasComponent } from './components/main-canvas/main-canvas.component';
+import { OwmAppidPrompterComponent } from './components/owm-appid-prompter/owm-appid-prompter.component';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
-import { APP_CONFIGURATION, AppConfigurationContract } from './configuration/app-configuration.contract';
+import { AppConfigurationContract, APP_CONFIGURATION } from './configuration/app-configuration.contract';
 import { APP_INITIALIZER_PROVIDERS, HTTP_INTERCEPTORS_PROVIDERS, MATERIAL_PROVIDERS, NGX_TRANSLATE_CONFIGURATION } from './core.providers';
 import { AppServiceLocator } from './services/app-service-locator';
 
-const COMPONENTS = [MainCanvasComponent, ToolbarComponent];
+const COMPONENTS = [MainCanvasComponent, OwmAppidPrompterComponent, ToolbarComponent];
+const ENTRY_COMPONENTS = [OwmAppidPrompterComponent];
 
 @NgModule({
   imports: [
@@ -19,16 +31,20 @@ const COMPONENTS = [MainCanvasComponent, ToolbarComponent];
     BrowserAnimationsModule,
     HttpClientModule,
     RouterModule,
+    ReactiveFormsModule,
     MatButtonModule,
     MatDialogModule,
+    MatFormFieldModule,
     MatIconModule,
+    MatInputModule,
     MatMenuModule,
     MatSnackBarModule,
     MatToolbarModule,
     NgxTranslateModule.forRoot(NGX_TRANSLATE_CONFIGURATION)
   ],
   declarations: [...COMPONENTS],
-  exports: [...COMPONENTS]
+  entryComponents: [...ENTRY_COMPONENTS],
+  exports: [MainCanvasComponent]
 })
 export class CoreModule {
   constructor(
