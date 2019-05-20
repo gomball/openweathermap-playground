@@ -44,7 +44,6 @@ export class CityWeatherComponent implements OnChanges {
   constructor(
     private readonly _owmService: OwmService,
     private readonly _cityHistoryService: CityHistoryService,
-    private readonly _cityHistoryQuery: CityHistoryQuery,
     private readonly _modalService: ModalService,
     private readonly _cdr: ChangeDetectorRef
   ) {}
@@ -62,8 +61,7 @@ export class CityWeatherComponent implements OnChanges {
 
   openHistory(): void {
     const city = this.city;
-    const history = this._cityHistoryQuery.getCityHistory(this.city.id);
-    this._modalService.open$(CityHistoryComponent, { city, history }, { panelClass: 'headed-full-screen-dialog' });
+    this._modalService.open$(CityHistoryComponent, { city }, { panelClass: 'headed-full-screen-dialog' });
   }
 
   private _fetchWeatherData(): void {

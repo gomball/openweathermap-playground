@@ -5,7 +5,6 @@ import { CityHistoryRecord } from '../../state/city-history.store';
 
 export interface CityHistoryComponentInput {
   city: City;
-  data: CityHistoryRecord[];
 }
 
 @Component({
