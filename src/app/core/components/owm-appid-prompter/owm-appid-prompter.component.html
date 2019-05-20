@@ -11,7 +11,7 @@
     <input matInput [placeholder]="'owmAppid' | translate" [formControl]="formControl" />
   </mat-form-field>
 </div>
-<mat-dialog-actions align="end" class="pb-5">
+<mat-dialog-actions align="end" class="px-2 pb-5">
   <button mat-button color="accent" [disabled]="formControl.invalid" (click)="close()">
     {{ 'accept' | translate | uppercase }}
   </button>
