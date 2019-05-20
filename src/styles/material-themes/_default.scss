@@ -26,4 +26,6 @@ $default-dark-theme: mat-dark-theme(
 
 body.dark-theme {
   @include angular-material-theme($default-dark-theme);
+  background-color: mat-color($mat-grey, 900);
+  color: mat-color($mat-grey, 100);;
 }
