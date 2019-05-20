@@ -17,7 +17,7 @@ type OwmRequest = 'current' | 'fiveDayForecast' | 'map';
 const OWM_API_URL_MAP: { [K in OwmRequest]: string } = {
   current: 'http://api.openweathermap.org/data/2.5/weather',
   fiveDayForecast: 'http://api.openweathermap.org/data/2.5/forecast',
-  map: 'https://tile.openweathermap.org/map'
+  map: 'https://tile.openweathermap.org/map/clouds/{z}/{x}/{y}.png'
 };
 
 const OWM_API_KEY = '180bf49294c9158d4f3c89691f87c1ac';
