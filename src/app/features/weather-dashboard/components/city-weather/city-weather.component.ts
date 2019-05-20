@@ -1,9 +1,13 @@
-import { ChangeDetectionStrategy, Component, Input, OnChanges, SimpleChanges, ChangeDetectorRef } from '@angular/core';
-import { City } from '../../../../domain/city';
-import { WeatherCondition, CurrentWeatherContract } from '../../services/owm/owm-dto.contracts';
-import { OwmService } from '../../services/owm/owm-service';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { timer } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
+import { ModalService } from 'src/app/core/services/modal/modal.service';
+import { City } from '../../../../domain/city';
+import { CurrentWeatherContract, WeatherCondition } from '../../services/owm/owm-dto.contracts';
+import { OwmService } from '../../services/owm/owm-service';
+import { CityHistoryService } from '../../state/city-history.service';
+import { CityHistoryComponent } from '../city-history/city-history.component';
+import { CityHistoryQuery } from '../../state/city-history.query';
 
 const WEATHER_CONDITION_ICON_MAP: { [K in WeatherCondition]: string } = {
   Clear: 'weather-sunny',
@@ -37,7 +41,12 @@ export class CityWeatherComponent implements OnChanges {
 
   currentWeather: CurrentWeatherContract;
 
-  constructor(private readonly _owmService: OwmService, private readonly _cdr: ChangeDetectorRef) {}
+  constructor(
+    private readonly _owmService: OwmService,
+    private readonly _cityHistoryService: CityHistoryService,
+    private readonly _modalService: ModalService,
+    private readonly _cdr: ChangeDetectorRef
+  ) {}
 
   ngOnChanges(changes: SimpleChanges): void {
     const city = changes.city;
@@ -50,12 +59,18 @@ export class CityWeatherComponent implements OnChanges {
     }
   }
 
+  openHistory(): void {
+    const city = this.city;
+    this._modalService.open$(CityHistoryComponent, { city }, { panelClass: 'full-screen-dialog' });
+  }
+
   private _fetchWeatherData(): void {
     timer(this.index * 1000)
       .pipe(switchMap(() => this._owmService.getCurrentAndFiveDayForecast$(this.city)))
       .subscribe((data) => {
         this.currentWeather = data.current;
         this._cdr.detectChanges();
+        this._cityHistoryService.setData(this.city.id, data.current);
       });
   }
 }

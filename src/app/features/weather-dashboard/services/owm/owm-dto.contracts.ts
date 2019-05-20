@@ -76,5 +76,5 @@ export interface CurrentWeatherContract {
     speed: number;
     deg: number;
   };
-  dateTime: moment.Moment;
+  dateTime: moment.Moment | Date;
 }

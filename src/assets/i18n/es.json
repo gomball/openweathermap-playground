@@ -1,8 +1,11 @@
 {
+  "cloudiness": "nubosidad",
   "cities": "ciudades",
   "city": "ciudad",
   "citySelector": "selector de ciudades",
+  "condition": "condición",
   "history": "histórico",
+  "humidity": "humedad",
   "next": "siguiente",
   "nextRefresh": "próxima actualización",
   "map": "mapa",
@@ -10,6 +13,8 @@
     "selectCities": "selecciona al menos una ciudad y como mucho cuatro",
     "selectCitiesLongExplain": "no están todas, pero tal vez esté la tuya, o tu próximo destino de vacaciones, ...quién sabe. escribe, selecciona y ¡sal de dudas!"
   },
+  "pressure": "presión",
+  "temperature": "temperatura",
   "weatherCondition": {
     "clear": "despejado",
     "clouds": "nuboso",
@@ -26,5 +31,6 @@
     "ash": "ceniza",
     "squall": "squall",
     "tornado": "tornado"
-  }
+  },
+  "wind": "viento"
 }

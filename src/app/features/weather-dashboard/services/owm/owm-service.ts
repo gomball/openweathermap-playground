@@ -80,7 +80,7 @@ export class OwmService {
         speed: get(input, 'wind.speed'),
         deg: get(input, 'wind.deg')
       },
-      dateTime: moment(get(input, 'dt'))
+      dateTime: moment(get(input, 'dt') * 1000)
     };
     return output;
   }

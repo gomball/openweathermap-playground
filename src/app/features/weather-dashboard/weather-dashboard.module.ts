@@ -1,15 +1,21 @@
 import { NgModule } from '@angular/core';
-import { MatListModule, MatSliderModule } from '@angular/material';
+import { MatDialogModule, MatListModule, MatSliderModule, MatTableModule, MatToolbarModule } from '@angular/material';
+import { ModalService } from 'src/app/core/services/modal/modal.service';
 import { SharedModule } from '../../shared/shared.module';
+import { CityHistoryComponent } from './components/city-history/city-history.component';
 import { CityWeatherComponent } from './components/city-weather/city-weather.component';
 import { OwmService } from './services/owm/owm-service';
 import { WeatherDashboardComponent } from './views/weather-dashboard/weather-dashboard.component';
 import { WeatherDashboardRoutingModule } from './weather-dashboard-routing.module';
 
 @NgModule({
-  imports: [MatListModule, MatSliderModule, SharedModule, WeatherDashboardRoutingModule],
-  declarations: [CityWeatherComponent, WeatherDashboardComponent],
+  imports: [MatDialogModule, MatListModule, MatSliderModule, MatTableModule, MatToolbarModule, SharedModule, WeatherDashboardRoutingModule],
+  declarations: [CityHistoryComponent, CityWeatherComponent, WeatherDashboardComponent],
+  entryComponents: [CityHistoryComponent],
   exports: [],
-  providers: [OwmService]
+  providers: [
+    ModalService, // => provided here again intenttionally
+    OwmService
+  ]
 })
 export class WeatherDashboardModule {}
