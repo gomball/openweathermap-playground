@@ -7,7 +7,7 @@ import { CurrentWeatherContract, WeatherCondition } from '../../services/owm/owm
 import { OwmService } from '../../services/owm/owm-service';
 import { CityHistoryService } from '../../state/city-history.service';
 import { CityHistoryComponent } from '../city-history/city-history.component';
-import { CityHistoryQuery } from '../../state/city-history.query';
+import { CityMapComponent } from '../city-map/city-map.component';
 
 const WEATHER_CONDITION_ICON_MAP: { [K in WeatherCondition]: string } = {
   Clear: 'weather-sunny',
@@ -62,6 +62,11 @@ export class CityWeatherComponent implements OnChanges {
   openHistory(): void {
     const city = this.city;
     this._modalService.open$(CityHistoryComponent, { city }, { panelClass: 'full-screen-dialog' });
+  }
+
+  openMap(): void {
+    const city = this.city;
+    this._modalService.open$(CityMapComponent, { city }, { panelClass: 'full-screen-dialog' });
   }
 
   private _fetchWeatherData(): void {
