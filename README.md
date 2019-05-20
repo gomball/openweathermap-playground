@@ -1,5 +1,12 @@
 # OpenWeatherMap Playground
 
+This is a Prove Of Concept. Its a simple SPA made with angular and some pieces of its ecosystem. Developed barely in 20/25 hours during spare ties in a week. Please be lenient...
+
+## Main feature:
+ - Select among a series of cities and get its weather. Eache request is stored  as a part o city's history.
+ - View stored request as history/log of each city ever requested.
+ - Display realtime cloudiness map.
+
 ## Before run or build
 
 run `npm ci` for installing project dependencies.
@@ -26,11 +33,12 @@ As this is a p.o.c. project, its mainly focused on features and functionallity. 
  - OpenWeatherMap: provides weather and climate information through a series of api endpoints.
  - Base framework: Angular 7: the last stable release at the time of writing this lines
  - UI: Google's Material Design: interates seamesly with Angular, provides lots of useful components and functionality, and eases a lot responsiveness tasks
- - State management: Datorama's Akita: althogh there other solutions (like ngrx/store, ngxs and others) Akita's approach to Redux is a mix onf OOP and functional/reactive programiming, which drastically simplifies the boilerplate when creating and maintaining the store and all its stuff (actions, effects, etc). Akita also integrates with 'ngdevtools' chormium plugin, which is very helpful in development stage.
+ - State management: Datorama's Akita: althogh there other solutions (like ngrx/store, ngxs and others) Akita's approach to Redux is a mix of OOP and functional/reactive programiming, which drastically simplifies the boilerplate when creating and maintaining the store and all its stuff (actions, effects, etc). Akita also integrates with 'ngdevtools' chormium plugin, which is very helpful in development stage.
  - I18N: NgxTranslate: only one locale supported by now ('es'), but every literal on the app is translated from a 'key'. Angular's LOCALE_ID is also managed, so dates, numbers and currencies are also 'internationalized'. Everithing is reactive.
  - Openlayers: map provider: open source and easy to develop/use javascript/typescript map platform. The app consumes layers fron OpenWeatherMap and [OpenStreenMap](https://www.openstreetmap.org).
 
 ## Pending things
  - Upgrade to Angular 8 (and maybe try Ivy).
+ - Persist city weather history on IndexedDB.
  - Localize weather records with a package like [Moment Timezone](https://momentjs.com/timezone/), so that the date property of the weather history records of each city appears on its local timezone.
  - Add graphs to city weather history.
