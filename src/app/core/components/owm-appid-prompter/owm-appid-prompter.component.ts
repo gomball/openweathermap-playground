@@ -1,6 +1,7 @@
-import { Component, Inject } from '@angular/core';
+import { Component } from '@angular/core';
 import { AbstractControl, FormControl, ValidatorFn } from '@angular/forms';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { MatDialogRef } from '@angular/material';
+import { StorageService } from '../../services/storage/storage.service';
 
 const regexpVaidator: (regexp: RegExp) => ValidatorFn = (regexp: RegExp) => {
   return (control: AbstractControl): { [key: string]: any } => {
@@ -18,11 +19,13 @@ const regexpVaidator: (regexp: RegExp) => ValidatorFn = (regexp: RegExp) => {
 export class OwmAppidPrompterComponent {
   formControl = new FormControl(null, [regexpVaidator(/^[0-9a-f]{32}$/i)]);
 
-  constructor(public readonly dialogRef: MatDialogRef<void>, @Inject(MAT_DIALOG_DATA) public readonly initialOwmAppid: string) {
+  constructor(private readonly _storageService: StorageService, public readonly dialogRef: MatDialogRef<void>) {
+    const initialOwmAppid = _storageService.getValue('owmAppid');
     this.formControl.setValue(initialOwmAppid || null);
   }
 
   close(): void {
+    this._storageService.setValue('owmAppid', this.formControl.value);
     this.dialogRef.close(this.formControl.value);
   }
 }
