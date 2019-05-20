@@ -1,14 +1,52 @@
 <mat-toolbar color="primary">
-  <button mat-icon-button>
-    <mat-icon svgIcon="restore-clock"></mat-icon>
+  <button mat-icon-button (click)="dialogRef.close()">
+    <mat-icon svgIcon="close"></mat-icon>
   </button>
-  <span class="title">{{ 'history' | translate }}: {{ data?.city.name }}, {{ data?.city.country }}</span>
+  <div class="center-xs w-100">
+    <button mat-icon-button>
+      <mat-icon svgIcon="restore-clock"></mat-icon>
+    </button>
+    <span class="title">{{ 'history' | translate }}: {{ data?.city.name }}, {{ data?.city.country }}</span>
+  </div>
 </mat-toolbar>
-<div mat-dialog-content>
-  <table mat-table></table>
+<div mat-dialog-content class="m-0 h-100">
+  <table mat-table [dataSource]="history$ | async" class="w-100">
+    <ng-container matColumnDef="dateTime">
+      <th mat-header-cell *matHeaderCellDef></th>
+      <th mat-cell *matCellDef="let item">{{ item?.dateTime | date: 'short' }}</th>
+    </ng-container>
+
+    <ng-container matColumnDef="condition">
+      <th mat-header-cell *matHeaderCellDef>{{ 'condition' | translate }}</th>
+      <td mat-cell *matCellDef="let item">{{ 'weatherCondition.' + (item?.atmosphere.condition | lowercase) | translate }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="temperature">
+      <th mat-header-cell *matHeaderCellDef>{{ 'temperature' | translate }}</th>
+      <td mat-cell *matCellDef="let item">{{ item?.temperature.current }}ºC</td>
+    </ng-container>
+
+    <ng-container matColumnDef="pressure">
+      <th mat-header-cell *matHeaderCellDef>{{ 'pressure' | translate }}</th>
+      <td mat-cell *matCellDef="let item">{{ item?.atmosphere.pressure }}mbar</td>
+    </ng-container>
+
+    <ng-container matColumnDef="humidity">
+      <th mat-header-cell *matHeaderCellDef>{{ 'humidity' | translate }}</th>
+      <td mat-cell *matCellDef="let item">{{ item?.atmosphere.humidity }}%</td>
+    </ng-container>
+
+    <ng-container matColumnDef="cloudiness">
+      <th mat-header-cell *matHeaderCellDef>{{ 'cloudiness' | translate }}</th>
+      <td mat-cell *matCellDef="let item">{{ item?.cloudiness }}%</td>
+    </ng-container>
+
+    <ng-container matColumnDef="wind">
+      <th mat-header-cell *matHeaderCellDef>{{ 'wind' | translate }}</th>
+      <td mat-cell *matCellDef="let item">{{ item?.wind.speed }}m/s {{ item?.wind.deg }}º</td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="gridColumns; sticky: true"></tr>
+    <tr mat-row *matRowDef="let row; columns: gridColumns"></tr>
+  </table>
 </div>
-<mat-dialog-actions align="end" class="py-3">
-  <button mat-button color="accent" (click)="dialogRef.close()">
-    {{ 'close' | translate | uppercase }}
-  </button>
-</mat-dialog-actions>
