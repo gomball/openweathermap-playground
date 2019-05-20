@@ -3,12 +3,12 @@
     <button mat-icon-button>
       <mat-icon svgIcon="help"></mat-icon>
     </button>
-    <span class="title">o.w.m. app id</span>
+    <span class="title">{{ 'owmAppid' | translate }}</span>
   </div>
 </mat-toolbar>
 <div mat-dialog-content class="m-0 pt-4">
   <mat-form-field class="w-100">
-    <input matInput [placeholder]="'owmAppid' | translate" [formControl]="formControl" />
+    <input matInput placeholder="appid" [formControl]="formControl" />
   </mat-form-field>
 </div>
 <mat-dialog-actions align="end" class="px-2 pb-5">
