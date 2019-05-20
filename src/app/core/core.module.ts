@@ -18,8 +18,14 @@ import { TranslateModule as NgxTranslateModule } from '@ngx-translate/core';
 import { MainCanvasComponent } from './components/main-canvas/main-canvas.component';
 import { OwmAppidPrompterComponent } from './components/owm-appid-prompter/owm-appid-prompter.component';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
-import { AppConfigurationContract, APP_CONFIGURATION } from './configuration/app-configuration.contract';
-import { APP_INITIALIZER_PROVIDERS, HTTP_INTERCEPTORS_PROVIDERS, MATERIAL_PROVIDERS, NGX_TRANSLATE_CONFIGURATION } from './core.providers';
+import { APP_CONFIGURATION, AppConfigurationContract } from './configuration/app-configuration.contract';
+import {
+  APP_INITIALIZER_PROVIDERS,
+  LOCALE_ID_PROVIDER,
+  HTTP_INTERCEPTORS_PROVIDERS,
+  MATERIAL_PROVIDERS,
+  NGX_TRANSLATE_CONFIGURATION
+} from './core.providers';
 import { AppServiceLocator } from './services/app-service-locator';
 
 const COMPONENTS = [MainCanvasComponent, OwmAppidPrompterComponent, ToolbarComponent];
@@ -64,6 +70,7 @@ export class CoreModule {
       ngModule: CoreModule,
       providers: [
         { provide: APP_CONFIGURATION, useValue: appConfiguration },
+        LOCALE_ID_PROVIDER,
         ...APP_INITIALIZER_PROVIDERS,
         ...HTTP_INTERCEPTORS_PROVIDERS,
         ...MATERIAL_PROVIDERS

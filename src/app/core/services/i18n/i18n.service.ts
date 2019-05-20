@@ -29,6 +29,10 @@ export class I18nService {
     return this._translateService.use(this._normalizeLocaleCode(locale));
   }
 
+  getLocale(): LocaleCode {
+    return this._translateService.currentLang as LocaleCode;
+  }
+
   translate$(key: string, params?: any): Observable<string> {
     return this._translateService.get(key, params);
   }
