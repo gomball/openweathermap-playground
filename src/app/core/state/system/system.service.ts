@@ -1,7 +1,7 @@
 import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/layout';
 import { Injectable } from '@angular/core';
 import { distinctUntilChanged, filter, map } from 'rxjs/operators';
-import { ScreenSize, SystemStore } from './system.store';
+import { ScreenSize, SystemStore, Theme } from './system.store';
 
 @Injectable({ providedIn: 'root' })
 export class SystemService {
@@ -14,6 +14,10 @@ export class SystemService {
         distinctUntilChanged()
       )
       .subscribe((screenSize) => this._store.update((state) => ({ ...state, screenSize })));
+  }
+
+  setTheme(theme: Theme): void {
+    this._store.update((state) => ({ ...state, theme }));
   }
 
   setPendingHttpRequestCount(operation: 'increase' | 'decrease'): void {

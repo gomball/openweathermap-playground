@@ -7,6 +7,7 @@ import { SystemState, SystemStore } from './system.store';
 export class SystemQuery extends Query<SystemState> {
   screenSize$ = this.select((state) => state.screenSize);
   screenSizeStyleClass$ = this.select((state) => 'screen-size-' + toLower(state.screenSize));
+  theme$ = this.select((state) => state.theme);
   pendingHttpRequest$ = this.select((state) => state.pendingHttpRequest);
   owmAppid$ = this.select((state) => state.owmAppid);
 
