@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { chain, last } from 'lodash';
+import { chain } from 'lodash';
+import * as moment from 'moment';
 import { first } from 'rxjs/operators';
 import { StorageService } from '../../../core/services/storage/storage.service';
 import { CityQuery } from '../../city-selector/state/city.query';
@@ -28,7 +29,7 @@ export class CityHistoryService {
         .last()
         .get('data.dateTime')
         .value();
-      if (data.dateTime.isSame(lastCurrentHistoryRecordDateTime)) {
+      if (moment(data.dateTime).isSame(lastCurrentHistoryRecordDateTime)) {
         return state;
       } else {
         const newRecord = { timestamp: new Date().getTime(), data };
