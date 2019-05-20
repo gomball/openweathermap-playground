@@ -1,12 +1,10 @@
 # OpenWeatherMap Playground
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.9.
-
 ## Before run or build
 
 run `npm ci` for installing project dependencies.
 
-### Running ocal server
+### Running local server
 
 Run `npm run serve.app.local` for a dev server. Navigate to `http://localhost:4200/`.
 
